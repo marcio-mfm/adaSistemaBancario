@@ -4,6 +4,10 @@
  */
 package app;
 
+import java.sql.SQLOutput;
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author Marcio
@@ -14,9 +18,8 @@ public class ContaCorrente {
     private float saldo;
     private float limiteChequeEspecial = -200f;
     private float saldoTotal = this.saldo + this.limiteChequeEspecial;
-    private String primeiroNome;
-    private String sobreNome;
-    private long numero;
+
+    private int numero;
     
     //Get e Set
 
@@ -53,32 +56,33 @@ public class ContaCorrente {
         this.saldoTotal = saldoTotal;
     }
 
-    public String getPrimeiroNome() {
-        return primeiroNome;
-    }
 
-    public void setPrimeiroNome(String primeiroNome) {
-        this.primeiroNome = primeiroNome;
-    }
-
-    public String getSobreNome() {
-        return sobreNome;
-    }
-
-    public void setSobreNome(String sobreNome) {
-        this.sobreNome = sobreNome;
-    }
-
-    public long getNumero() {
+    public int getNumero() {
         System.out.println(this.numero);
         return numero;
     }
 
-    public void setNumero(long numero) {    
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
     //Metodos Personalizados
+
+    public void abrirContaCorrente() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o primeiro nome do cliente:");
+        String primeiroNome = sc.nextLine();
+        System.out.println("Digite o sobrenome do cliente:");
+        String sobrenome = sc.nextLine();
+        System.out.println("Digite o CPF do cliente:");
+        int cpf = sc.nextInt();
+        System.out.println("Digite o endereço do cliente:");
+        String endereco = sc.nextLine();
+        CadastraCliente novoCliente = new CadastraCliente(primeiroNome, sobrenome, cpf, endereco);
+        Random random = new Random();
+        int numero = random.nextInt();
+        this.setNumero(numero);
+    }
     public void deposito(float v) {
         
         this.setSaldoTotal(this.getSaldoTotal() + v);
@@ -124,9 +128,7 @@ public class ContaCorrente {
        
    }
    
-   public void nomeCompleto(){
-       System.out.println("Nome do cliente: " + this.getPrimeiroNome() + " " + this.getSobreNome());
-   }
+
    
    
 }
