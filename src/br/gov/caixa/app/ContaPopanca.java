@@ -1,4 +1,4 @@
-package app;
+package br.gov.caixa.app;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package app;
+package br.gov.caixa.app;
 
-import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 

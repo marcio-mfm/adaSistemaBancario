@@ -1,4 +1,4 @@
-package app;
+package br.gov.caixa.app;
 
 public class CadastraCliente {
     private String primeiroNome;
