@@ -4,6 +4,8 @@
  */
 package br.gov.caixa.app;
 
+import br.gov.caixa.app.Models.Contas.ContaCorrente;
+
 /**
  *
  * @author Marcio

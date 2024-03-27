@@ -1,6 +1,7 @@
-package br.gov.caixa.app;
+package br.gov.caixa.app.Models.Users;
 
 import br.gov.caixa.app.Enum.Classificacao;
+import br.gov.caixa.app.Enum.Status;
 
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class Usuario {
     private Classificacao clasificacao;
     private String nome;
     private Date dataDeCadastro;
-    private boolean Status;
+    private boolean status;
 
     //Gtters & Setters
     public String getId() {
@@ -45,12 +46,12 @@ public class Usuario {
         this.dataDeCadastro = dataDeCadastro;
     }
 
-    public boolean isStatus() {
-        return Status;
+    public boolean getStatus() {
+        return this.status;
     }
 
     public void setStatus(boolean status) {
-        Status = status;
+        this.status = status;
     }
 
     //Abre Conta
