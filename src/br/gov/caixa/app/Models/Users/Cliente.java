@@ -1,11 +1,10 @@
 package br.gov.caixa.app.Models.Users;
 
 import br.gov.caixa.app.Enum.Classificacao;
-import br.gov.caixa.app.Enum.Status;
 
 import java.util.Date;
 
-public class Usuario {
+public class Cliente {
     //Variáveis
     private String id;
     private Classificacao clasificacao;

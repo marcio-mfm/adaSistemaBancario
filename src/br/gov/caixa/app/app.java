@@ -15,7 +15,7 @@ public class app {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         // TODO code application logic here
         ContaCorrente c1 = new ContaCorrente();
         
@@ -24,6 +24,6 @@ public class app {
         c1.rendimento();
         c1.exibeSaldo();
         
-    }
+    }*/
     
 }

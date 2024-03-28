@@ -1,6 +1,6 @@
 package br.gov.caixa.app.Models.Services;
 
-import br.gov.caixa.app.Models.Users.Usuario;
+import br.gov.caixa.app.Models.Users.Cliente;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class HistoricoAcoes {
     private String identficacao;
     private double valorPretendito;
     private double valorReal;
-    private Usuario usuarioOrigem;
-    private Usuario usuarioDestino;
+    private Cliente usuarioOrigem;
+    private Cliente usuarioDestino;
 
 }

@@ -1,7 +1,7 @@
 package br.gov.caixa.app.Models.Common;
 
 import br.gov.caixa.app.Enum.Status;
-import br.gov.caixa.app.Models.Users.Usuario;
+import br.gov.caixa.app.Models.Users.Cliente;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ public abstract class Conta {
     private String historicoAcoes;
     private Date dataDeAtualizacao;
     private Status status;
-    private Usuario usuario;
+    private Cliente usuario;
 
     //Getters & Setters
 
@@ -56,11 +56,11 @@ public abstract class Conta {
         this.status = status;
     }
 
-    public Usuario getUsuario() {
+    public Cliente getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Cliente usuario) {
         this.usuario = usuario;
     }
 
