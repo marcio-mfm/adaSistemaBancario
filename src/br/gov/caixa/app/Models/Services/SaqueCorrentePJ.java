@@ -1,11 +1,14 @@
 package br.gov.caixa.app.Models.Services;
 
+import br.gov.caixa.app.Enum.Classificacao;
+
 public class SaqueCorrentePJ extends Saque{
     double taxa;
-    public double saqueCorrentePF(String id, double valorSaque, double saldo){
+    public double saqueCorrentePJ(String id, double valorSaque, double saldo){
+
         if (saque(id, valorSaque, saldo)){
-            taxa = valorSaque * 0.005;
-            return saldo - valorSaque - taxa;
+            taxa = valorSaque * Classificacao.CNPJ.getTaxaSaque();
+            return  saldo - valorSaque - taxa;
         } else {
             return saldo;
         }

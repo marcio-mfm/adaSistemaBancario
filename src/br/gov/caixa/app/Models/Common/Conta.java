@@ -7,7 +7,7 @@ import java.util.Date;
 
 public abstract class Conta {
     //Atributos
-    private Long id;
+    private String id;
     private float saldo;
     private String historicoAcoes;
     private Date dataDeAtualizacao;
@@ -16,11 +16,11 @@ public abstract class Conta {
 
     //Getters & Setters
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,4 +66,12 @@ public abstract class Conta {
 
     //Ações
 
+    public Conta(String id, float saldo, String historicoAcoes, Date dataDeAtualizacao, Status status, Cliente usuario) {
+        this.id = id;
+        this.saldo = saldo;
+        this.historicoAcoes = historicoAcoes;
+        this.dataDeAtualizacao = dataDeAtualizacao;
+        this.status = status;
+        this.usuario = usuario;
+    }
 }

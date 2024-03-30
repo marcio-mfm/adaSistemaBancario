@@ -5,5 +5,7 @@ import br.gov.caixa.app.Models.Common.Conta;
 
 
 public class ContaCorrente extends Conta {
-
+    public ContaCorrente() {
+        super(Cliente.getId());
+    }
 }
