@@ -1,4 +1,4 @@
-package br.gov.caixa.app.Models.Services;
+package br.gov.caixa.app.Models.Services.Saque;
 
 import br.gov.caixa.app.Models.Common.Conta;
 

@@ -1,6 +1,7 @@
 package br.gov.caixa.app.Models.Common;
 
 import br.gov.caixa.app.Enum.Status;
+import br.gov.caixa.app.Models.Services.HistoricoAcoes.ListaAcoes;
 import br.gov.caixa.app.Models.Users.Cliente;
 
 import java.util.Date;
@@ -9,12 +10,18 @@ public abstract class Conta {
     //Atributos
     private String id;
     private float saldo;
-    private String historicoAcoes;
+    private ListaAcoes listaAcoes;
     private Date dataDeAtualizacao;
     private Status status;
-    private Cliente usuario;
+    private Cliente cliente;
+    private String IdUsuario;
 
     //Getters & Setters
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 
     public String getId() {
         return id;
@@ -32,13 +39,10 @@ public abstract class Conta {
         this.saldo = saldo;
     }
 
-    public String getHistoricoAcoes() {
-        return historicoAcoes;
+    public ListaAcoes getListaAcoes() {
+        return listaAcoes;
     }
 
-    public void setHistoricoAcoes(String historicoAcoes) {
-        this.historicoAcoes = historicoAcoes;
-    }
 
     public Date getDataDeAtualizacao() {
         return dataDeAtualizacao;
@@ -56,22 +60,23 @@ public abstract class Conta {
         this.status = status;
     }
 
-    public Cliente getUsuario() {
-        return usuario;
+    public String getIdUsuario() {
+        return IdUsuario;
     }
 
-    public void setUsuario(Cliente usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(String IdUsuario) {
+        this.IdUsuario = IdUsuario;
     }
 
     //Ações
 
-    public Conta(String id, float saldo, String historicoAcoes, Date dataDeAtualizacao, Status status, Cliente usuario) {
+    public Conta(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente, String IdUsuario) {
         this.id = id;
         this.saldo = saldo;
-        this.historicoAcoes = historicoAcoes;
+        this.listaAcoes = listaAcoes;
         this.dataDeAtualizacao = dataDeAtualizacao;
         this.status = status;
-        this.usuario = usuario;
+        this.cliente = cliente;
+        this.IdUsuario = IdUsuario;
     }
 }

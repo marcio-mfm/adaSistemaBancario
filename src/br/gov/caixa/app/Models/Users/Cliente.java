@@ -1,18 +1,20 @@
 package br.gov.caixa.app.Models.Users;
 
 import br.gov.caixa.app.Enum.Classificacao;
+import br.gov.caixa.app.Enum.Status;
 
 import java.util.Date;
 
 public class Cliente {
     //Variáveis
     private String id;
-    private Classificacao clasificacao;
+    private Classificacao classificacao;
     private String nome;
     private Date dataDeCadastro;
-    private boolean status;
+    private Status status;
 
     //Gtters & Setters
+
     public String getId() {
         return id;
     }
@@ -21,12 +23,12 @@ public class Cliente {
         this.id = id;
     }
 
-    public Classificacao getClasificacao() {
-        return clasificacao;
+    public Classificacao getClassificacao() {
+        return classificacao;
     }
 
-    public void setClasificacao(Classificacao clasificacao) {
-        this.clasificacao = clasificacao;
+    public void setClassificacao(Classificacao classificacao) {
+        this.classificacao = classificacao;
     }
 
     public String getNome() {
@@ -45,16 +47,22 @@ public class Cliente {
         this.dataDeCadastro = dataDeCadastro;
     }
 
-    public boolean getStatus() {
+    public Status getStatus() {
         return this.status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    //Abre Conta
-    public void abreContaCorrente(){
+    //Construtor
 
+
+    public Cliente(String id, Classificacao classificacao, String nome, Date dataDeCadastro, Status status) {
+        this.id = id;
+        this.classificacao = classificacao;
+        this.nome = nome;
+        this.dataDeCadastro = dataDeCadastro;
+        this.status = status;
     }
 }
