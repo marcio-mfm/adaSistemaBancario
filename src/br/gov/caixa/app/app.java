@@ -6,6 +6,7 @@ package br.gov.caixa.app;
 
 import br.gov.caixa.app.Enum.Classificacao;
 import br.gov.caixa.app.Enum.Status;
+import br.gov.caixa.app.Models.Contas.ContaPoupanca.AbreContaPoupanca;
 import br.gov.caixa.app.Models.Services.Deposito.Deposito;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.ImprimeAcoes;
 import br.gov.caixa.app.Models.Services.Investimento.RealizaInvestmento;
@@ -23,12 +24,12 @@ public class app {
 
     public static void main(String[] args) {
         Date data = new Date();
-        Cliente clientePF = new Cliente("11111111111", Classificacao.CPF, "Fulano de Tal", data, Status.Ativo);
-        CadastraCliente.cadastraClientePF("11111111111", Classificacao.CPF, "Fulano de Tal", data, Status.Ativo);
+        Cliente clientePF = CadastraCliente.cadastraClientePF("11111111111", Classificacao.CPF, "Fulano de Tal", data, Status.Ativo);
 
         Deposito.deposito(clientePF.getContaCorrente(), 250.00f);
         SaqueCorrentePF.saqueCorrentePF(clientePF.getContaCorrente(), 50f);
         RealizaInvestmento.realizaInvestimento(clientePF.getContaCorrente(), 50f);
+        AbreContaPoupanca.criaContaPoupanca(data, Status.Ativo, clientePF);
 
         ImprimeAcoes.imprimeAcoes(clientePF);
 

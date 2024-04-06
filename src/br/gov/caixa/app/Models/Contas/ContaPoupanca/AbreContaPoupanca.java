@@ -12,14 +12,14 @@ import java.util.Date;
 
 public abstract class AbreContaPoupanca implements CriaContaPoupanca {
 
-        public static ContaCorrente criaContaPoupanca(Date dataDeAtualizacao, Status status, Cliente cliente, String IdUsuario) {
+        public static ContaPopanca criaContaPoupanca(Date dataDeAtualizacao, Status status, Cliente cliente) {
             int geraId = (int) Math.random();
             String id = Integer.toString(geraId);
             float saldo = 0;
-            HistoricoAcoes historicoAcoes = new HistoricoAcoes(dataDeAtualizacao, "Abertura da conta", 0, 0, null, null);
-            ListaAcoes listaAcoesContaCorrente = new ListaAcoes();
-            RegistraAcoes.registraAcoes(listaAcoesContaCorrente, historicoAcoes);
-            return new ContaCorrente(id, saldo, listaAcoesContaCorrente, dataDeAtualizacao, status, cliente, IdUsuario);
+            HistoricoAcoes historicoAcoes = new HistoricoAcoes(dataDeAtualizacao, "Abertura da conta Poupança", 0, 0, null, null);
+            ListaAcoes listaAcoesContaPoupanca = new ListaAcoes();
+            RegistraAcoes.registraAcoes(listaAcoesContaPoupanca, historicoAcoes);
+            return new ContaPopanca(id, saldo, listaAcoesContaPoupanca, dataDeAtualizacao, status, cliente);
         }
 
 }

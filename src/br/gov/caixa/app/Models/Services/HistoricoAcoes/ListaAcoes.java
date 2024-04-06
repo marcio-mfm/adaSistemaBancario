@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ListaAcoes {
     static ArrayList<HistoricoAcoes> listaAcoes = new ArrayList<>();
 
-    public static ArrayList<HistoricoAcoes> getListaAcoes() {
+    public ArrayList<HistoricoAcoes> getListaAcoes() {
         return listaAcoes;
     }
 

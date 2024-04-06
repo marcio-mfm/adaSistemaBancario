@@ -23,5 +23,27 @@ public class HistoricoAcoes {
         this.usuarioDestino = usuarioDestino;
     }
 
+    public Date getData() {
+        return data;
+    }
 
+    public String getIdentficacao() {
+        return identficacao;
+    }
+
+    public double getValorPretendito() {
+        return valorPretendito;
+    }
+
+    public double getValorReal() {
+        return valorReal;
+    }
+
+    public Cliente getUsuarioOrigem() {
+        return usuarioOrigem;
+    }
+
+    public Cliente getUsuarioDestino() {
+        return usuarioDestino;
+    }
 }

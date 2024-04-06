@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class ContaPopanca extends Conta {
 
-    public ContaPopanca(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente, String IdUsuario) {
-        super(id, saldo, listaAcoes, dataDeAtualizacao, status, cliente, IdUsuario);
+    public ContaPopanca(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
+        super(id, saldo, listaAcoes, dataDeAtualizacao, status, cliente);
     }
 }

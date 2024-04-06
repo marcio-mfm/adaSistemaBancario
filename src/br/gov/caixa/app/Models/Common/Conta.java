@@ -70,13 +70,12 @@ public abstract class Conta {
 
     //Ações
 
-    public Conta(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente, String IdUsuario) {
+    public Conta(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
         this.id = id;
         this.saldo = saldo;
         this.listaAcoes = listaAcoes;
         this.dataDeAtualizacao = dataDeAtualizacao;
         this.status = status;
         this.cliente = cliente;
-        this.IdUsuario = IdUsuario;
     }
 }

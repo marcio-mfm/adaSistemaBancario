@@ -21,6 +21,6 @@ public class ContaInvestimento extends Conta {
     }
 
     public ContaInvestimento(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente, String IdUsuario) {
-        super(id, saldo, listaAcoes, dataDeAtualizacao, status, cliente, IdUsuario);
+        super(id, saldo, listaAcoes, dataDeAtualizacao, status, cliente);
     }
 }
