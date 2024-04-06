@@ -1,4 +1,4 @@
-package br.gov.caixa.app.Models.Contas;
+package br.gov.caixa.app.Models.Contas.ContaPoupanca;
 
 import br.gov.caixa.app.Enum.Status;
 import br.gov.caixa.app.Models.Common.Conta;

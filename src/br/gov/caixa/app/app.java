@@ -4,24 +4,34 @@
  */
 package br.gov.caixa.app;
 
+import br.gov.caixa.app.Enum.Classificacao;
+import br.gov.caixa.app.Enum.Status;
+import br.gov.caixa.app.Models.Services.Deposito.Deposito;
+import br.gov.caixa.app.Models.Services.HistoricoAcoes.ImprimeAcoes;
+import br.gov.caixa.app.Models.Services.Investimento.RealizaInvestmento;
+import br.gov.caixa.app.Models.Services.Saque.SaqueCorrentePF;
+import br.gov.caixa.app.Models.Users.CadastraCliente;
+import br.gov.caixa.app.Models.Users.Cliente;
+
+import java.util.Date;
+
 /**
  *
  * @author Marcio
  */
 public class app {
 
-    /**
-     * @param args the command line arguments
-     */
-   /* public static void main(String[] args) {
-        // TODO code application logic here
-        ContaCorrente c1 = new ContaCorrente();
-        
-        c1.deposito(100);
-        c1.saque(125);
-        c1.rendimento();
-        c1.exibeSaldo();
-        
-    }*/
+    public static void main(String[] args) {
+        Date data = new Date();
+        Cliente clientePF = new Cliente("11111111111", Classificacao.CPF, "Fulano de Tal", data, Status.Ativo);
+        CadastraCliente.cadastraClientePF("11111111111", Classificacao.CPF, "Fulano de Tal", data, Status.Ativo);
+
+        Deposito.deposito(clientePF.getContaCorrente(), 250.00f);
+        SaqueCorrentePF.saqueCorrentePF(clientePF.getContaCorrente(), 50f);
+        RealizaInvestmento.realizaInvestimento(clientePF.getContaCorrente(), 50f);
+
+        ImprimeAcoes.imprimeAcoes(clientePF);
+
+    }
     
 }

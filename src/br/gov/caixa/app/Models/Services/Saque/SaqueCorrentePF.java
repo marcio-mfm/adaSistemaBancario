@@ -9,8 +9,8 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 import java.util.Date;
 
 public class SaqueCorrentePF extends VerificaSaldo {
-    public void saqueCorrentePF(ContaCorrente conta, float valorSaque, float saldo){
-        saldo = conta.getSaldo();
+    public static void saqueCorrentePF(ContaCorrente conta, float valorSaque){
+        float saldo = conta.getSaldo();
         Date dataDeSaque = new Date();
         float taxa;
         if (verificaSaldo(valorSaque, saldo)){
@@ -27,7 +27,7 @@ public class SaqueCorrentePF extends VerificaSaldo {
             RegistraAcoes.registraAcoes(conta.getListaAcoes(), historicoAcoesSaque);
             System.out.println("Saque realizado com sucesso");
         } else {
-            float valorReal = 0;
+            float valorReal = 0f;
             HistoricoAcoes historicoAcoesSaque = new HistoricoAcoes(dataDeSaque,
                     "Saque",
                     valorSaque,
