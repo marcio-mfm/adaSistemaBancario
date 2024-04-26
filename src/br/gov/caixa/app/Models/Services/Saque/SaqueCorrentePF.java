@@ -6,17 +6,18 @@ import br.gov.caixa.app.Models.Contas.ContaCorrente.ContaCorrente;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.HistoricoAcoes;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class SaqueCorrentePF extends VerificaSaldo {
-    public static void saqueCorrentePF(ContaCorrente conta, float valorSaque){
-        float saldo = conta.getSaldo();
+    public static void saqueCorrentePF(ContaCorrente conta, BigDecimal valorSaque){
+        BigDecimal saldo = conta.getSaldo();
         Date dataDeSaque = new Date();
-        float taxa;
+        BigDecimal taxa;
         if (verificaSaldo(valorSaque, saldo)){
-            taxa = (float) (valorSaque * Classificacao.CPF.getTaxaSaque());
-            float valorReal = (valorSaque + taxa);
-            conta.setSaldo( (saldo - valorReal));
+            taxa = valorSaque.multiply(Classificacao.CPF.getTaxaSaque());
+            BigDecimal valorReal = valorSaque.add(taxa);
+            conta.setSaldo(saldo.subtract(valorReal));
             HistoricoAcoes historicoAcoesSaque = new HistoricoAcoes(dataDeSaque,
                     "Saque",
                     valorSaque,
@@ -27,7 +28,7 @@ public class SaqueCorrentePF extends VerificaSaldo {
             RegistraAcoes.registraAcoes(conta.getListaAcoes(), historicoAcoesSaque);
             System.out.println("Saque realizado com sucesso");
         } else {
-            float valorReal = 0f;
+            BigDecimal valorReal = BigDecimal.valueOf(0);
             HistoricoAcoes historicoAcoesSaque = new HistoricoAcoes(dataDeSaque,
                     "Saque",
                     valorSaque,

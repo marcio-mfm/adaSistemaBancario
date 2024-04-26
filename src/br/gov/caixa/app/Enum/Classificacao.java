@@ -1,14 +1,16 @@
 package br.gov.caixa.app.Enum;
 
+import java.math.BigDecimal;
+
 public enum Classificacao {
 
-        CPF("Pessoa Física", 0.0f, 0.01f), CNPJ("Pessoa Jurídica", 0.005f, 0.02f);
+        CPF("Pessoa Física", BigDecimal.valueOf(0.0), BigDecimal.valueOf(0.01)), CNPJ("Pessoa Jurídica", BigDecimal.valueOf(0.005), BigDecimal.valueOf(0.02));
 
         private final String descricao;
-        private final float taxaSaque;
-        private final float taxaInvestimento;
+        private final BigDecimal taxaSaque;
+        private final BigDecimal taxaInvestimento;
 
-        Classificacao(String descricao, float taxaSaque, float taxaInvestimento){
+        Classificacao(String descricao, BigDecimal taxaSaque, BigDecimal taxaInvestimento){
                 this.descricao = descricao;
                 this.taxaSaque = taxaSaque;
                 this.taxaInvestimento = taxaInvestimento;
@@ -18,9 +20,9 @@ public enum Classificacao {
                 return descricao;
         }
 
-        public float getTaxaSaque() {
+        public BigDecimal getTaxaSaque() {
                 return taxaSaque;
         }
 
-        public float getTaxaInvestimento() { return taxaInvestimento; }
+        public BigDecimal getTaxaInvestimento() { return taxaInvestimento; }
 }

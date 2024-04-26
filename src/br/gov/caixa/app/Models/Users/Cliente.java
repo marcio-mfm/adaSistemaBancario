@@ -4,7 +4,7 @@ import br.gov.caixa.app.Enum.Classificacao;
 import br.gov.caixa.app.Enum.Status;
 import br.gov.caixa.app.Models.Contas.ContaCorrente.ContaCorrente;
 import br.gov.caixa.app.Models.Contas.ContaInvestimento.ContaInvestimento;
-import br.gov.caixa.app.Models.Contas.ContaPoupanca.ContaPopanca;
+import br.gov.caixa.app.Models.Contas.ContaPoupanca.ContaPoupanca;
 
 import java.util.Date;
 
@@ -18,7 +18,7 @@ public class Cliente {
     private boolean TemContaInvestimento = false;
     private Status status;
     private ContaCorrente contaCorrente;
-    private ContaPopanca contaPopanca;
+    private ContaPoupanca contaPoupanca;
 
     //Gtters & Setters
 
@@ -31,12 +31,12 @@ public class Cliente {
         this.contaCorrente = contaCorrente;
     }
 
-    public ContaPopanca getContaPopanca() {
-        return contaPopanca;
+    public ContaPoupanca getContaPopanca() {
+        return contaPoupanca;
     }
 
-    public void setContaPopanca(ContaPopanca contaPopanca) {
-        this.contaPopanca = contaPopanca;
+    public void setContaPopanca(ContaPoupanca contaPoupanca) {
+        this.contaPoupanca = contaPoupanca;
     }
 
     public ContaInvestimento getContaInvestimento() {

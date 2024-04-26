@@ -4,12 +4,13 @@ import br.gov.caixa.app.Enum.Status;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.ListaAcoes;
 import br.gov.caixa.app.Models.Users.Cliente;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public abstract class Conta {
     //Atributos
     private String id;
-    private float saldo;
+    private BigDecimal saldo;
     private ListaAcoes listaAcoes;
     private Date dataDeAtualizacao;
     private Status status;
@@ -31,11 +32,11 @@ public abstract class Conta {
         this.id = id;
     }
 
-    public float getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
 
@@ -70,7 +71,7 @@ public abstract class Conta {
 
     //Ações
 
-    public Conta(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
+    public Conta(String id, BigDecimal saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
         this.id = id;
         this.saldo = saldo;
         this.listaAcoes = listaAcoes;

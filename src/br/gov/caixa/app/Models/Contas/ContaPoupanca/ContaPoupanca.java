@@ -5,11 +5,12 @@ import br.gov.caixa.app.Models.Common.Conta;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.ListaAcoes;
 import br.gov.caixa.app.Models.Users.Cliente;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
-public class ContaPopanca extends Conta {
+public class ContaPoupanca extends Conta {
 
-    public ContaPopanca(String id, float saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
+    public ContaPoupanca(String id, BigDecimal saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
         super(id, saldo, listaAcoes, dataDeAtualizacao, status, cliente);
     }
 }

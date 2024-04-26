@@ -9,22 +9,23 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 import br.gov.caixa.app.Models.Users.Cliente;
 import br.gov.caixa.app.Validador.VerificaSaldo;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class RealizaInvestmento extends VerificaSaldo{
-    public static void realizaInvestimento(Conta conta, float valorInvestir){
+    public static void realizaInvestimento(Conta conta, BigDecimal valorInvestir){
         Cliente clienteInvestimento = conta.getCliente();
         Date data = new Date();
-        float saldo = conta.getSaldo();
+        BigDecimal saldo = conta.getSaldo();
         if(verificaSaldo(valorInvestir, saldo)) {
             if (clienteInvestimento.isTemContaInvestimento()) {
                 ContaInvestimento contaInvestimento = clienteInvestimento.getContaInvestimento();
-                contaInvestimento.setSaldo(contaInvestimento.getSaldo() + valorInvestir);
+                contaInvestimento.setSaldo(contaInvestimento.getSaldo().add(valorInvestir));
                 contaInvestimento.setDataInvestmento(data);
 
             } else {
                ContaInvestimento contaInvestimento = AbreContaInvestimento.criaContaInvestimento(data, Status.Ativo, clienteInvestimento, clienteInvestimento.getId());
-               contaInvestimento.setSaldo(contaInvestimento.getSaldo() + valorInvestir);
+               contaInvestimento.setSaldo(contaInvestimento.getSaldo().add(valorInvestir));
                contaInvestimento.setDataInvestmento(data);
             }
             //Registra Investimento
@@ -32,7 +33,7 @@ public class RealizaInvestmento extends VerificaSaldo{
             RegistraAcoes.registraAcoes(conta.getListaAcoes(), historicoAcoesInvestimento);
 
         } else {
-            HistoricoAcoes historicoAcoesInvestimento = new HistoricoAcoes(data, "Não foi possível realizar Investimento", valorInvestir, 0.0f, null, null);
+            HistoricoAcoes historicoAcoesInvestimento = new HistoricoAcoes(data, "Não foi possível realizar Investimento", valorInvestir, BigDecimal.valueOf(0), null, null);
             RegistraAcoes.registraAcoes(conta.getListaAcoes(), historicoAcoesInvestimento);
 
         }
