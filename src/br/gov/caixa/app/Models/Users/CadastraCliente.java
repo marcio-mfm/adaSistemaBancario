@@ -5,11 +5,11 @@ import br.gov.caixa.app.Enum.Status;
 import br.gov.caixa.app.Models.Contas.ContaCorrente.AbreContaCorrente;
 import br.gov.caixa.app.Models.Contas.ContaCorrente.ContaCorrente;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CadastraCliente {
-    public static Cliente cadastraClientePF(String id, Classificacao classificacao, String nome, Date dataDeCadastro, Status status){
-        dataDeCadastro = new Date();
+    public static Cliente cadastraCliente(String id, Classificacao classificacao, String nome, LocalDate dataDeCadastro, Status status){
+        dataDeCadastro = LocalDate.now();
         classificacao = Classificacao.CPF;
         status = Status.Ativo;
         String IdUsuario = id;

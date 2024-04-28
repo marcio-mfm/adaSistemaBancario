@@ -5,12 +5,12 @@ import br.gov.caixa.app.Enum.Status;
 import br.gov.caixa.app.Models.Contas.ContaCorrente.AbreContaCorrente;
 import br.gov.caixa.app.Models.Contas.ContaCorrente.ContaCorrente;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CadastraEmpresa {
 
-    public Cliente cadastraClientePJ(String id, Classificacao classificacao, String nome, Date dataDeCadastro, Status status){
-        dataDeCadastro = new Date();
+    public Cliente cadastraClientePJ(String id, Classificacao classificacao, String nome, LocalDate dataDeCadastro, Status status){
+        dataDeCadastro = LocalDate.now();
         classificacao = Classificacao.CNPJ;
         status = Status.Ativo;
         String IdUsuario = id;

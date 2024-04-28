@@ -5,13 +5,15 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.HistoricoAcoes;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Locale;
 
 public class Deposito {
     public static void deposito(Conta conta,BigDecimal valorDeposito){
         BigDecimal saldoAtual = conta.getSaldo();
         conta.setSaldo(valorDeposito.add(saldoAtual));
-        Date dataDeposito = new Date();
+        LocalDate dataDeposito = LocalDate.now();
         HistoricoAcoes historicoAcoesDeposito = new HistoricoAcoes(dataDeposito, "Deposito", valorDeposito, valorDeposito, null, null);
         RegistraAcoes.registraAcoes(conta.getListaAcoes(), historicoAcoesDeposito);
     }

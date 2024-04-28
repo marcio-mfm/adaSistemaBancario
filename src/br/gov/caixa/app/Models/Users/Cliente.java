@@ -2,10 +2,12 @@ package br.gov.caixa.app.Models.Users;
 
 import br.gov.caixa.app.Enum.Classificacao;
 import br.gov.caixa.app.Enum.Status;
+import br.gov.caixa.app.Models.Contas.ContaCorrente.AbreContaCorrente;
 import br.gov.caixa.app.Models.Contas.ContaCorrente.ContaCorrente;
 import br.gov.caixa.app.Models.Contas.ContaInvestimento.ContaInvestimento;
 import br.gov.caixa.app.Models.Contas.ContaPoupanca.ContaPoupanca;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Cliente {
@@ -13,7 +15,7 @@ public class Cliente {
     private String id;
     private Classificacao classificacao;
     private String nome;
-    private Date dataDeCadastro;
+    private LocalDate dataDeCadastro;
     private ContaInvestimento contaInvestimento;
     private boolean TemContaInvestimento = false;
     private Status status;
@@ -81,11 +83,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Date getDataDeCadastro() {
+    public LocalDate getDataDeCadastro() {
         return dataDeCadastro;
     }
 
-    public void setDataDeCadastro(Date dataDeCadastro) {
+    public void setDataDeCadastro(LocalDate dataDeCadastro) {
         this.dataDeCadastro = dataDeCadastro;
     }
 
@@ -100,11 +102,12 @@ public class Cliente {
     //Construtor
 
 
-    public Cliente(String id, Classificacao classificacao, String nome, Date dataDeCadastro, Status status) {
+    public Cliente(String id, Classificacao classificacao, String nome, LocalDate dataDeCadastro, Status status) {
         this.id = id;
         this.classificacao = classificacao;
         this.nome = nome;
         this.dataDeCadastro = dataDeCadastro;
         this.status = status;
+
     }
 }

@@ -7,13 +7,14 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.HistoricoAcoes;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class SaqueCorrentePJ extends VerificaSaldo {
     BigDecimal taxa;
     public void saqueCorrentePJ(ContaCorrente conta, BigDecimal valorSaque, BigDecimal saldo){
         saldo = conta.getSaldo();
-        Date dataDeSaque = new Date();
+        LocalDate dataDeSaque = LocalDate.now();
         if (verificaSaldo(valorSaque, saldo)){
             taxa =(valorSaque.multiply(Classificacao.CNPJ.getTaxaSaque()));
             BigDecimal valorReal = (valorSaque.add(taxa));

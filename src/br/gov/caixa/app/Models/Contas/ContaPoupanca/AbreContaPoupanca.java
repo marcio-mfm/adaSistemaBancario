@@ -8,11 +8,12 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 import br.gov.caixa.app.Models.Users.Cliente;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class AbreContaPoupanca implements CriaContaPoupanca {
 
-        public static ContaPoupanca criaContaPoupanca(Date dataDeAtualizacao, Status status, Cliente cliente) {
+        public static ContaPoupanca criaContaPoupanca(LocalDate dataDeAtualizacao, Status status, Cliente cliente) {
             int geraId = (int) Math.random();
             String id = Integer.toString(geraId);
             BigDecimal saldo = BigDecimal.valueOf(0);

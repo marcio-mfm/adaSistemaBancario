@@ -10,12 +10,13 @@ import br.gov.caixa.app.Models.Users.Cliente;
 import br.gov.caixa.app.Validador.VerificaSaldo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class RealizaInvestmento extends VerificaSaldo{
     public static void realizaInvestimento(Conta conta, BigDecimal valorInvestir){
         Cliente clienteInvestimento = conta.getCliente();
-        Date data = new Date();
+        LocalDate data = LocalDate.now();
         BigDecimal saldo = conta.getSaldo();
         if(verificaSaldo(valorInvestir, saldo)) {
             if (clienteInvestimento.isTemContaInvestimento()) {

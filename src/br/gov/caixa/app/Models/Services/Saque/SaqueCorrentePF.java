@@ -7,12 +7,13 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.HistoricoAcoes;
 import br.gov.caixa.app.Models.Services.HistoricoAcoes.RegistraAcoes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class SaqueCorrentePF extends VerificaSaldo {
     public static void saqueCorrentePF(ContaCorrente conta, BigDecimal valorSaque){
         BigDecimal saldo = conta.getSaldo();
-        Date dataDeSaque = new Date();
+        LocalDate dataDeSaque = LocalDate.now();
         BigDecimal taxa;
         if (verificaSaldo(valorSaque, saldo)){
             taxa = valorSaque.multiply(Classificacao.CPF.getTaxaSaque());

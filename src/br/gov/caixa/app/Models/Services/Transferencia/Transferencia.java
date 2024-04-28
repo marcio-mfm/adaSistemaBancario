@@ -7,6 +7,7 @@ import br.gov.caixa.app.Models.Users.Cliente;
 import br.gov.caixa.app.Validador.VerificaSaldo;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Transferencia extends VerificaSaldo {
@@ -16,7 +17,7 @@ public class Transferencia extends VerificaSaldo {
 
         BigDecimal saldoOrigem = contaOrigem.getSaldo();
         BigDecimal taxa;
-        Date data = new Date();
+        LocalDate data = LocalDate.now();
         if (verificaSaldo(valorTransferencia, saldoOrigem)){
            //Utiliza a taxa conforme a classificação
             taxa = (valorTransferencia.multiply(clienteOrigem.getClassificacao().getTaxaSaque()));

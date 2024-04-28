@@ -5,6 +5,7 @@ import br.gov.caixa.app.Models.Services.HistoricoAcoes.ListaAcoes;
 import br.gov.caixa.app.Models.Users.Cliente;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class Conta {
@@ -12,7 +13,7 @@ public abstract class Conta {
     private String id;
     private BigDecimal saldo;
     private ListaAcoes listaAcoes;
-    private Date dataDeAtualizacao;
+    private LocalDate dataDeAtualizacao;
     private Status status;
     private Cliente cliente;
     private String IdUsuario;
@@ -45,11 +46,11 @@ public abstract class Conta {
     }
 
 
-    public Date getDataDeAtualizacao() {
+    public LocalDate getDataDeAtualizacao() {
         return dataDeAtualizacao;
     }
 
-    public void setDataDeAtualizacao(Date dataDeAtualizacao) {
+    public void setDataDeAtualizacao(LocalDate dataDeAtualizacao) {
         this.dataDeAtualizacao = dataDeAtualizacao;
     }
 
@@ -71,7 +72,7 @@ public abstract class Conta {
 
     //Ações
 
-    public Conta(String id, BigDecimal saldo, ListaAcoes listaAcoes, Date dataDeAtualizacao, Status status, Cliente cliente) {
+    public Conta(String id, BigDecimal saldo, ListaAcoes listaAcoes, LocalDate dataDeAtualizacao, Status status, Cliente cliente) {
         this.id = id;
         this.saldo = saldo;
         this.listaAcoes = listaAcoes;

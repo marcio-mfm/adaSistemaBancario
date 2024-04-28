@@ -6,6 +6,7 @@ import br.gov.caixa.app.Models.Users.Cliente;
 
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class AplicaRendimento {
@@ -14,7 +15,7 @@ public class AplicaRendimento {
         BigDecimal saldo = conta.getSaldo();
         BigDecimal taxaRendimento = (clienteInvestimento.getClassificacao().getTaxaInvestimento());
         BigDecimal valorRendiemnto = saldo.multiply(taxaRendimento);
-        Date data = new Date();
+        LocalDate data = LocalDate.now();
         int diasDoInvestimento = conta.getDataInvestmento().compareTo(data);
         if(diasDoInvestimento > 30) {
             BigDecimal rendimentoTotal = valorRendiemnto.multiply(BigDecimal.valueOf(diasDoInvestimento/30));
