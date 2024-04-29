@@ -64,7 +64,7 @@ public class app {
                     //return new ListaCliente(colunas[0], colunas[1], colunas[2], colunas[3]);
                 })
                 .filter(listaCliente -> "1".equals(listaCliente.tipo()))
-                .filter(linha -> Period.between(LocalDate.parse(linha.nascimentoCriacao(), formatter), dataAtual).getYears() > 18)
+                .filter(linha -> Period.between(LocalDate.parse(linha.nascimentoCriacao(), formatter), dataAtual).getYears() >= 18)
                 .map(listaCliente -> {
                     return CadastraCliente.cadastraCliente(listaCliente.CPFCNPJ(), Classificacao.CPF, listaCliente.nome(), dataAtual, Status.Ativo);
 
